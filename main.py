@@ -10,3 +10,7 @@ parser = LlamaParse(result_type="markdown")
 
 file_extractor = {".pdf":parser}
 documents = SimpleDirectoryReader("./data", file_extractor=file_extractor).load_data()
+
+embed_model = resolve_embed_model("local:BAAI/bge-m3")
+
+vector_index = VectorStoreIndex.from_documents(documents, embed_model=embed_model)
