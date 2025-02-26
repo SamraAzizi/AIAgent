@@ -14,3 +14,6 @@ documents = SimpleDirectoryReader("./data", file_extractor=file_extractor).load_
 embed_model = resolve_embed_model("local:BAAI/bge-m3")
 
 vector_index = VectorStoreIndex.from_documents(documents, embed_model=embed_model)
+
+query_engine = vector_index.as_query_engine(llm=llm)
+query_engine.query("what are some of the route in the api")
