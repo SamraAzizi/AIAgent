@@ -45,6 +45,12 @@ code_llm = Ollama(model="codellama")
 agent = ReActAgent.from_tools(tools, llm=code_llm , verbose=True, context=context)
 
 class CodeOutPut(BaseModel):
+    code : str
+    description: str
+    filename: str
+
+parser = PydanticOutputParser(CodeOutPut)
+json_prompt_str = parser.format(code_parsertemp;ate)
     
 
 
