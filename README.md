@@ -49,3 +49,20 @@ ai\Scripts\activate
 ```bash
 source ai/bin/activate
 ```
+
+4. Install the required packages:
+```bash
+pip install -r requirements.txt
+```
+
+5. Set up environment variables: Create a .env file in the root directory of the project and add any necessary environment variables.
+
+# Usage
+
+1. Place you PDF documents and code files in the `data` directory
+2. Run the main Scripts:
+```bash
+python main.py
+```
+
+3. Follow the prompts in the terminal to enter your queries. Type q to quit the program.
