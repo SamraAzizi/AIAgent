@@ -5,9 +5,10 @@ from llama_index.core.embeddings import resolve_embed_model
 from llama_index.core.tools import QueryEngineTool, ToolMetadata
 from dotenv import load_dotenv
 from llama_index.core.agent import ReActAgent
-from prompts import context
+from prompts import context, code_parser_template
 from code_reader import code_reader
 from pydantic import BaseModel
+import ast
 from llama_index.core.output_parsers import PydanticOutputParser
 from llama_index.core.query_pipeline import QueryPipeline
 load_dotenv()
@@ -50,10 +51,19 @@ class CodeOutPut(BaseModel):
     filename: str
 
 parser = PydanticOutputParser(CodeOutPut)
-json_prompt_str = parser.format(code_parsertemp;ate)
+json_prompt_str = parser.format(code_parser_template)
+json_prompt_tmpl = PromptTemplate(json_prompt_str)
+output_pineline = QueryPipeline(chain=[json_prompt_tmpl, llm])
     
 
 
 while (prompt := input("Enter a prompt (q to quit): ")) != "q":
     result = agent.query(prompt)
-    print(result)
+    next_result = output_pineline.run(response=result)
+    cleaned_json = ast.literal_eval(str(next_result).replace("assistant:", ""))
+    print("code generated")
+    print(cleaned_json["code"])
+
+    print("\n\nDescription:", cleaned_json["description"])
+
+    filename = cleaned_json["filename"]
