@@ -32,3 +32,20 @@ This project is an AI-powered code generation tool that utilizes the `ollama` an
    ```bash
    git clone <repository-url>
    cd <repository-directory>
+
+
+2. Create a Virtual environment: 
+```bash
+python -m venv ai
+```
+
+3. Activate The virtual environment:
+- On Windows
+```bash
+ai\Scripts\activate
+```
+
+- On macOS/Linux
+```bash
+source ai/bin/activate
+```
