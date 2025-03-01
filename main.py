@@ -9,6 +9,7 @@ from prompts import context, code_parser_template
 from code_reader import code_reader
 from pydantic import BaseModel
 import ast
+import os
 from llama_index.core.output_parsers import PydanticOutputParser
 from llama_index.core.query_pipeline import QueryPipeline
 load_dotenv()
@@ -80,3 +81,11 @@ while (prompt := input("Enter a prompt (q to quit): ")) != "q":
     print("\n\nDescription:", cleaned_json["description"])
 
     filename = cleaned_json["filename"]
+
+    try:
+        with open(os.path.join("output", filename), "w") as f:
+            f.write(cleaned_json["code"])
+        print("Save File", filename)
+
+    except:
+        print("error saving file...")
