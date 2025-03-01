@@ -8,7 +8,6 @@ This project is an AI-powered code generation tool that utilizes the `ollama` an
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Directory Structure](#directory-structure)
 - [Contributing](#contributing)
 
 
