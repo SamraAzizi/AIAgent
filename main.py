@@ -58,9 +58,22 @@ output_pineline = QueryPipeline(chain=[json_prompt_tmpl, llm])
 
 
 while (prompt := input("Enter a prompt (q to quit): ")) != "q":
-    result = agent.query(prompt)
-    next_result = output_pineline.run(response=result)
-    cleaned_json = ast.literal_eval(str(next_result).replace("assistant:", ""))
+    retries = 0
+
+    while retries < 3:
+        try:
+
+            result = agent.query(prompt)
+            next_result = output_pineline.run(response=result)
+            cleaned_json = ast.literal_eval(str(next_result).replace("assistant:", ""))
+            break
+        except Exception as e:
+            retries += 1
+            print("error occured, retry #{retries}:", e)
+
+    if retries >= 3:
+        print("Unable to process request, try again...")
+        continue
     print("code generated")
     print(cleaned_json["code"])
 
