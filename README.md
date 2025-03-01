@@ -68,27 +68,7 @@ python main.py
 3. Follow the prompts in the terminal to enter your queries. Type q to quit the program.
 
 
-# Directory Structure
 
-/project-root
-│
-├── /data                # Directory containing PDF and code files
-│   ├── your_file.pdf    # Example PDF file for processing
-│   └── test.py          # Test script for the application
-│
-├── /output              # Directory where generated code files will be saved
-│
-├── /prompts.py          # Contains prompt templates for code generation
-│
-├── /code_reader.py      # Contains the code reader functionality
-│
-├── main.py              # Main script to run the application
-│
-├── requirements.txt      # List of required Python packages
-│
-├── .env                 # Environment variables (create this file)
-│
-└── .venv                # Virtual environment directory (created during setup)
 
 # Contributing
 
