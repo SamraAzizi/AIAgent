@@ -10,7 +10,7 @@ This project is an AI-powered code generation tool that utilizes the `ollama` an
 - [Usage](#usage)
 - [Directory Structure](#directory-structure)
 - [Contributing](#contributing)
-- [License](#license)
+
 
 ## Features
 
@@ -73,7 +73,7 @@ python main.py
 /project-root
 │
 ├── /data                # Directory containing PDF and code files
-│   ├── your_file.pdf
+│   ├── your_file.pdf    # Example PDF file for processing
 │   └── test.py          # Test script for the application
 │
 ├── /output              # Directory where generated code files will be saved
@@ -89,3 +89,7 @@ python main.py
 ├── .env                 # Environment variables (create this file)
 │
 └── .venv                # Virtual environment directory (created during setup)
+
+# Contributing
+
+Contributions are welcome! If you have suggestions for improvements or new features, please open an issue or submit a pull request.
